@@ -22,3 +22,13 @@ enhanced blog site based on **`nextjs`** belongs to me, version 6.0（[中文](h
     *   for local development, the assets url in the page would be like **`/_next/static/asset.js`**
     *   for production runtime environment, the assets url in the page would be like **`//${ossDomain}/${staticFolder}/_next/static/asset.js`**
     *   to decrease the time that costed in requesting and loading assets, all files would be migrated into **OSS** , and would be published before deploy, which would be requested and loaded in production runtime environment
+
+## Scripts
+*   **`dev`**
+    *   used for **local development**
+*   **`build`**
+    *   used to output **bundled files**
+*   **`publish`**
+    *   used to publish necessary static rsources from **local** to **OSS**
+*   **`start`**
+    *   used for **production environment**

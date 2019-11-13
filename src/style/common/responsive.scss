@@ -1,0 +1,29 @@
+@import '~style/common/variables.scss';
+
+html {
+    font-size: $fontSizeBasic;
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: calc(#{$fontSizeBasic} * 0.85);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    html {
+        font-size: calc(#{$fontSizeBasic} * 0.95);
+    }
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: calc(#{$fontSizeBasic} * 1);
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: calc(#{$fontSizeBasic} * 1.05);
+    }
+}

@@ -4,6 +4,8 @@ import fetch from 'isomorphic-unfetch';
 
 import config from 'config';
 import {
+    TitleGenerator,
+    HeadGenerator,
     Layout,
 } from 'components';
 
@@ -36,116 +38,105 @@ const Error = function(props) {
 
     return (
         <>
+            <TitleGenerator title={ seo.title }/>
+            <HeadGenerator seo={ seo }/>
             <Layout seo={ seo }>
-                <div id="errContainer">
-                    <div className="err-content">
-                        <div className="err-title">
-                            <h1>Oops!</h1>
+                <div className="page-error">
+                    <div id="errContainer">
+                        <div className="err-content">
+                            <div className="err-title">
+                                <h1>Oops!</h1>
+                            </div>
+                            <h2>{ errMsg }</h2>
+                            <p>{ msgContent }</p>
+                            <a className="go-homepage-link" href="/">{ goHomepage }</a>
                         </div>
-                        <h2>{ errMsg }</h2>
-                        <p>{ msgContent }</p>
-                        <a className="go-homepage-link" href="/">{ goHomepage }</a>
                     </div>
-                </div>
-                <style global jsx>{`
-                * {
-                    -webkit-box-sizing: border-box;
-                    box-sizing: border-box;
-                }
+                    <style global jsx>{`
+                    * {
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                    }
 
-                body {
-                    padding: 0;
-                    margin: 0;
-                }
+                    body {
+                        padding: 0;
+                        margin: 0;
+                    }
 
-                #errContainer {
-                    position: relative;
-                    height: 100vh;
-                }
+                    #errContainer {
+                        position: relative;
+                        height: 100vh;
+                    }
 
-                #errContainer .err-content {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    padding: 0 10px;
-                    -webkit-transform: translate(-50%, -50%);
-                    -ms-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
-                }
+                    #errContainer .err-content {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 100%;
+                        padding: 0 10px;
+                        -webkit-transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        text-align: center;
+                    }
 
-                .err-content {
-                    max-width: 410px;
-                    width: 100%;
-                    text-align: center;
-                }
-
-                .err-content .err-title {
-                    height: 280px;
-                    position: relative;
-                    z-index: -1;
-                }
-
-                .err-content .err-title h1 {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 230px;
-                    margin: 0px;
-                    font-weight: 900;
-                    position: absolute;
-                    left: 50%;
-                    -webkit-transform: translateX(-50%);
-                    -ms-transform: translateX(-50%);
-                    transform: translateX(-50%);
-                    background: url('${assetPrefix}/static/img/error-page-bg.jpg') no-repeat;
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-size: cover;
-                    background-position: center;
-                }
-
-
-                .err-content h2 {
-                    font-family: 'Montserrat', sans-serif;
-                    color: #000;
-                    font-size: 24px;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    margin-top: 0;
-                }
-
-                .err-content p {
-                    font-family: 'Montserrat', sans-serif;
-                    color: #000;
-                    font-size: 14px;
-                    font-weight: 400;
-                    margin-bottom: 20px;
-                    margin-top: 0px;
-                }
-
-                .err-content a {
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 14px;
-                    text-decoration: none;
-                    background: #0046d5;
-                    display: inline-block;
-                    padding: 15px 30px;
-                    border-radius: 40px;
-                    color: #fff;
-                    font-weight: 700;
-                    -webkit-box-shadow: 0px 4px 15px -5px #0046d5;
-                    box-shadow: 0px 4px 15px -5px #0046d5;
-                }
-
-                @media only screen and (max-width: 767px) {
                     .err-content .err-title {
-                        height: 142px;
+                        position: relative;
+                        z-index: -1;
                     }
 
                     .err-content .err-title h1 {
-                        font-size: 112px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 200px;
+                        margin: 0px;
+                        font-weight: 900;
+                        background: url('${assetPrefix}/static/img/error-page-bg.jpg') no-repeat;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-size: cover;
+                        background-position: center;
                     }
-                }
-                `}</style>
+
+                    .err-content h2 {
+                        font-family: 'Montserrat', sans-serif;
+                        color: #000;
+                        font-size: 24px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-top: 0;
+                    }
+
+                    .err-content p {
+                        font-family: 'Montserrat', sans-serif;
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 400;
+                        margin-bottom: 20px;
+                        margin-top: 0px;
+                    }
+
+                    .err-content a {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 14px;
+                        text-decoration: none;
+                        background: #0046d5;
+                        display: inline-block;
+                        padding: 15px 30px;
+                        border-radius: 40px;
+                        color: #fff;
+                        font-weight: 700;
+                        -webkit-box-shadow: 0px 4px 15px -5px #0046d5;
+                        box-shadow: 0px 4px 15px -5px #0046d5;
+                    }
+
+                    @media only screen and (max-width: 767px) {
+                        .err-content .err-title h1 {
+                            font-size: 112px;
+                        }
+                    }
+                    `}</style>
+                </div>
             </Layout>
         </>
     );
@@ -162,14 +153,7 @@ Error.getInitialProps = async ctx => {
     } = ctx;
     const statusCode = res ? res.statusCode : err ? err.statusCode : 0;
 
-    const seoParam = {
-        page: 'error',
-        statusCode,
-    };
-    const seoRes = await fetch(`${config.domain}/api/util/seo`, {
-        method: 'POST',
-        body: JSON.stringify(seoParam),
-    });
+    const seoRes = await fetch(`${config.domain}/api/util/seo?page=error&statusCode=${statusCode}`);
     const seoResult = await seoRes.json();
 
     const initProps = {

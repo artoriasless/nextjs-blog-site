@@ -17,21 +17,17 @@ const Paper = withRouter(function(props) {
             <TitleGenerator title={ seo.title }/>
             <HeadGenerator seo={ seo }/>
             <Layout>
-                <h1>Paper Page</h1>
-                <div>Paper page test</div>
+                <div className="page-paper">
+                    <h1>Paper Page</h1>
+                    <div>Paper page test</div>
+                </div>
             </Layout>
         </>
     );
 });
 
 Paper.getInitialProps = async () => {
-    const seoParam = {
-        page: 'paper',
-    };
-    const seoRes = await fetch(`${config.domain}/api/util/seo`, {
-        method: 'POST',
-        body: JSON.stringify(seoParam),
-    });
+    const seoRes = await fetch(`${config.domain}/api/util/seo?page=paper`);
     const seoResult = await seoRes.json();
     
     const initProps = {

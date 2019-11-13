@@ -1,0 +1,184 @@
+@import '~style/common/variables.scss';
+
+.app {
+    .common-navbar-container {
+        position: fixed;
+        display: block;
+        height: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0.25rem;
+        background-color: $colorWhite;
+        z-index: 999999;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 1px;
+            left: -1000px;
+            right: -1000px;
+            bottom: 0;
+            background-color: $colorGreyLighter;
+        }
+
+        .common-navbar {
+            max-width: 1200px;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .navbar-brand {
+            padding: 0;
+
+            .logo {
+                display: block;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+
+        .navbar-toggler {
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.collapsed .fa:before {
+                content: "\f0c9";
+            }
+
+            .fa:before {
+                content: "\f0ca";
+            }
+        }
+
+        .nav-link {
+            padding: 0 1rem;
+            color: $colorTheme;
+            cursor: pointer;
+
+            &:hover {
+                color: $colorThemeDark;
+            }
+        }
+
+        #navbarRight {
+            .navbar-nav {
+                width: 100%;
+            }
+
+            .nav-item {
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .user-avatar {
+                display: block;
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                margin: 0 5px 0 0;
+                border-radius: 50%;
+                float: left;
+            }
+
+            .user-center-link {
+                height: auto;
+                line-height: 1;
+            }
+            
+            .user-name {
+                display: inline-block;
+                max-width: 15em;
+                height: 2rem;
+                line-height: 2rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:before {
+                    content: "Welcome, ";
+                    color: $colorOrange;
+                }
+            }
+
+            .user-name.inactivated {
+                color: $colorGreyLighter;
+            }
+            
+            .logout-link {
+                color: $colorRed;
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 0;
+            padding: 0;
+            margin: 0.25rem 0 0;
+            border-top: none;
+            border-radius: 0 0 0.25rem 0.25rem;
+            overflow: hidden;
+            text-align: center;
+
+            .dropdown-item {
+                padding: 0 1rem;
+                color: $colorTheme;
+
+                &:hover {
+                    color: $colorThemeDark;
+                }
+
+                &:active {
+                    background-color: #f8f9fa;
+                }
+            }
+        }
+    }
+}
+
+/* 小屏设备 */
+@media (max-width: 767px) {
+    .app {
+        .common-navbar-container {
+            .navbar-collapse {
+                padding: 0;
+                margin: -0.25rem;
+                margin-top: calc(0.25rem + 1px);
+                background-color: $colorWhiteDark;
+            }
+
+            .nav-link {
+                padding: 0.25rem 0;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                overflow: hidden;
+                text-align: center;
+
+                .dropdown-item {
+                    padding: 0;
+                }
+            }
+
+            #navbarRight {
+                .nav-item {
+                    height: auto;
+                    line-height: 25px;
+                }
+
+                .user-avatar {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ import {
     Layout,
 } from 'components';
 
-const Profile = withRouter(function(props) {
+const activate = withRouter(function(props) {
     const seo = props.seo || {};
 
     return (
@@ -17,17 +17,17 @@ const Profile = withRouter(function(props) {
             <TitleGenerator title={ seo.title }/>
             <HeadGenerator seo={ seo }/>
             <Layout>
-                <div className="page-profile">
-                    <h1>Profile Page</h1>
-                    <div>Profile page test</div>
+                <div className="page-activate">
+                    <h1>activate Page</h1>
+                    <div>activate page test</div>
                 </div>
             </Layout>
         </>
     );
 });
 
-Profile.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=profile`);
+activate.getInitialProps = async () => {
+    const seoRes = await fetch(`${config.domain}/api/util/seo?page=activate`);
     const seoResult = await seoRes.json();
     
     const initProps = {
@@ -37,4 +37,4 @@ Profile.getInitialProps = async () => {
     return initProps;
 };
 
-export default Profile;
+export default activate;

@@ -1,8 +1,49 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
 @import '~style/common/variables.scss';
 
+@import '~style/common/responsive.scss';
+@import '~style/common/overwrite-theme.scss';
 @import '~style/common/font-style.scss';
 
-@import '~bootstrap/scss/bootstrap.scss';
+body,
+#root,
+#root .app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#root {
+    overflow: hidden;
+    background: url('#{$assetPrefix}/static/img/main-bg.jpg') no-repeat center center / cover;
+}
+
+#root .app {
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.975);
+}
+
+#root .app .page-section-header + .page-section-body {
+    position: relative;
+    max-width: 1200px;
+    padding: 0.25rem;
+    margin: calc(2.5rem + 1px) auto 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: consola,"microsoft yahei",Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC","Hiragino Sans GB",Simsun,sans-self;
+}
+
+body * {
+    word-wrap: break-word;
+    word-break: break-all;
+}
 
 hr {
     height: 1px;
@@ -13,6 +54,30 @@ hr {
     border: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .hidden {
     display: none;
 }
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+@import '~style/common/scroller.scss';
+@import '~style/common/animation.scss';
+@import '~style/common/pager.scss';
+@import '~style/common/modal.scss';
+@import '~style/common/stan-compass.scss';
+@import '~style/common/stan-loading.scss';
+@import '~style/common/stan-alert.scss';
+@import '~style/common/stan-confirm.scss';
+@import '~style/common/stan-radio.scss';

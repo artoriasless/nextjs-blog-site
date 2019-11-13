@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-const TitleGenerator = function(props) {
+const CommonTitleGenerator = function(props) {
     const title = props.title || '';
 
     return (
@@ -14,8 +14,8 @@ const TitleGenerator = function(props) {
     );
 };
 
-TitleGenerator.propTypes = {
+CommonTitleGenerator.propTypes = {
     title: PropTypes.string,
 };
 
-export default TitleGenerator;
+export default CommonTitleGenerator;

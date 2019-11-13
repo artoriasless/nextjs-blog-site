@@ -111,10 +111,12 @@ const paperSubmit = withRouter(function(props) {
                 <script src={ `${assetPrefix}/static/plugins/jodit/index.js` }></script>
             </HeadGenerator>
             <Layout>
-                <h1>Paper Submit Page</h1>
-                <div>Paper Submit page test</div>
-                <div style={{ margin: '25px 50px', }}>
-                    <Editor/>
+                <div className="page-paper-submit">
+                    <h1>Paper Submit Page</h1>
+                    <div>Paper Submit page test</div>
+                    <div style={{ margin: '25px 50px', }}>
+                        <Editor/>
+                    </div>
                 </div>
             </Layout>
         </>
@@ -122,13 +124,7 @@ const paperSubmit = withRouter(function(props) {
 });
 
 paperSubmit.getInitialProps = async () => {
-    const seoParam = {
-        page: 'paperSubmit',
-    };
-    const seoRes = await fetch(`${config.domain}/api/util/seo`, {
-        method: 'POST',
-        body: JSON.stringify(seoParam),
-    });
+    const seoRes = await fetch(`${config.domain}/api/util/seo?page=paperSubmit`);
     const seoResult = await seoRes.json();
     
     const initProps = {

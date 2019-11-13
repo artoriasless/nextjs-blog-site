@@ -1,0 +1,28 @@
+@import '~style/common/variables.scss';
+
+#loginModal {
+    .nav-tabs {
+        display: flex;
+        text-align: center;
+        font-weight: bold;
+
+        .nav-link {
+            flex: 1;
+            opacity: 0.75;
+
+            &[aria-selected="true"] {
+                opacity: 1;
+            }
+        }
+    }
+
+    #loginForm .reset-pwd-link {
+        display: block;
+        height: 25px;
+        line-height: 25px;
+        font-size: 0.75em;
+        color: $colorTheme;
+        float: right;
+        cursor: pointer;
+    }
+}

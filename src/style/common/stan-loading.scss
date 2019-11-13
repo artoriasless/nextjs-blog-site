@@ -1,0 +1,21 @@
+.stan-loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999999;
+    background-color: rgba(255, 255, 255, 0.75);
+
+    .stan-loading-content {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50%;
+        left: 50%;
+        padding: 0;
+        margin-left: -50px;
+        margin-top: -50px;
+        background: url('#{$assetPrefix}/static/img/loading.gif') no-repeat center center / contain;
+    }
+}

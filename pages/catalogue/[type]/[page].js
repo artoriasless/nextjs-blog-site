@@ -17,21 +17,17 @@ const Catalogue = withRouter(function(props) {
             <TitleGenerator title={ seo.title }/>
             <HeadGenerator seo={ seo }/>
             <Layout>
-                <h1>Catalogue Page</h1>
-                <div>Catalogue page test</div>
+                <div className="page-catalogue">
+                    <h1>Catalogue Page</h1>
+                    <div>Catalogue page test</div>
+                </div>
             </Layout>
         </>
     );
 });
 
 Catalogue.getInitialProps = async () => {
-    const seoParam = {
-        page: 'catalogue',
-    };
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=catalogue`, {
-        method: 'POST',
-        body: JSON.stringify(seoParam),
-    });
+    const seoRes = await fetch(`${config.domain}/api/util/seo?page=catalogue`);
     const seoResult = await seoRes.json();
     
     const initProps = {

@@ -4,6 +4,7 @@ const koaCors = require('koa2-cors');
 
 const config = require('../../../config');
 
+const user = require('./user');
 const util = require('./util');
 
 const GET = 'GET';
@@ -11,7 +12,18 @@ const POST = 'POST';
 const cors = config.dev;
 const confiList = [
     // routerUrl, isCors, type, controllerFunc
-    ['/api/util/seo', cors, POST, util.seo],
+    
+    // User
+    ['/api/user/default', cors, GET, user.getUserDefault],
+    ['/api/user/login',cors, POST, user.login],
+    ['/api/user/logout', cors, POST, user.logout],
+    ['/api/user/register', cors, POST, user.register],
+    ['/api/user/activate', cors, POST, user.activate],
+    ['/api/user/update-info', cors, POST, user.updateInfo],
+    ['/api/user/update-pwd', cors, POST, user.updatePwd],
+    ['/api/user/reset-pwd', cors, POST, user.resetPwd],
+    ['/api/user/send-activate-mail', cors, POST, user.sendActivateMail],
+
     // Util
     ['/api/util/seo', cors, GET, util.seo],
 ];

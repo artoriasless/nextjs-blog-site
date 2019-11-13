@@ -3,9 +3,10 @@
 const confList = [
     // routerUrl, fileUrl
     ['/', '/index'],
-    ['/catalogue/:type', '/catalogue/[type]'],
+    ['/catalogue/:type/:page', '/catalogue/[type]'],
     ['/paper/:id', '/paper/[id]'],
     ['/profile/:uuid', '/profile/[uuid]'],
+    ['/activate/:uuid', '/activate/[uuid]'],
     ['/paper-submit/:id', '/paper-submit/[id]'],
 ];
 
@@ -24,6 +25,15 @@ const page = (router, app) => {
         ] = confItem;
         
         controllerFunc(app, router, routerUrl, fileUrl);
+    });
+    // used for redirect
+    router.get('/catalogue', async ctx => {
+        ctx.redirect('/catalogue/all/1');
+    });
+    router.get('/catalogue/:type/', async ctx => {
+        const paramType = ctx.params.type;
+
+        ctx.redirect(`/catalogue/${paramType}/1`);
     });
 
     return router;

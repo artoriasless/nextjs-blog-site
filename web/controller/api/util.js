@@ -6,16 +6,18 @@ const {
 
 const util = {
     seo: async ctx => {
-        const pageType = ctx.query.page || '';
+        const reqData = ctx.query || {};
+        const pageType = reqData.page || '';
         const result = {
             success: true,
             message: 'fetch seo data success.',
-            data: {},
+            data: seoTpl[pageType] || seoTpl.unknown,
         };
 
         switch (pageType) {
+        // additional process
         default:
-            result.data = seoTpl.unknown;
+            // do nothing
         }
 
         ctx.body = result;

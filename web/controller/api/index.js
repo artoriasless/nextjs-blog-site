@@ -12,6 +12,8 @@ const cors = config.dev;
 const confiList = [
     // routerUrl, isCors, type, controllerFunc
     ['/api/util/seo', cors, POST, util.seo],
+    // Util
+    ['/api/util/seo', cors, GET, util.seo],
 ];
 
 const api = (router, app) => { // eslint-disable-line

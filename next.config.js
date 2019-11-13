@@ -16,6 +16,8 @@ const sassLoaderOptions = {
 const webpack = function(config, options) { // eslint-disable-line
     config.resolve = config.resolve || {};
     config.resolve.alias = Object.assign({}, config.resolve.alias || {}, {
+        'actions': path.resolve(__dirname, 'src/actions'),
+        'reducers': path.resolve(__dirname, 'src/reducers'),
         'components': path.resolve(__dirname, 'src/components'),
         'style': path.resolve(__dirname, 'src/style'),
         'lib': path.resolve(__dirname, 'src/lib'),

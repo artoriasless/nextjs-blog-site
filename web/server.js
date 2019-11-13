@@ -16,16 +16,23 @@ const app = next({
     dev: config.dev,
 });
 
-app.prepare().then(() => {
-    const server = new Koa();
-    const router = initRouter(app);
-
-    server.keys = config.sessionKeys;
-    server.use(normalizeStatus)
-        .use(koaSession(config.session, server))
-        .use(koaBody())
-        .use(koaLogger({transporter: koaLoggerTransporter}))
-        .use(router.routes())
-        .use(router.allowedMethods())
-        .listen(config.port);
-});
+(async () => {
+    try {
+        app.prepare().then(() => {
+            const server = new Koa();
+            const router = initRouter(app);
+        
+            server.keys = config.sessionKeys;
+            server.use(normalizeStatus)
+                .use(koaSession(config.session, server))
+                .use(koaBody())
+                .use(koaLogger({transporter: koaLoggerTransporter}))
+                .use(router.routes())
+                .use(router.allowedMethods())
+                .listen(config.port);
+        });
+    } catch (err) {
+        console.error(err); // eslint-disable-line
+        process.exit();
+    }
+})();

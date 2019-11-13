@@ -16,5 +16,7 @@ module.exports = {
             },
         },
     },
-    owners: [],
+    owners: [
+        '4da3a6d7-999d-4955-8ea2-d86ea9cf1234'
+    ],
 };

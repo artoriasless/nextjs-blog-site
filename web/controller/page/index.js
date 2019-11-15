@@ -3,7 +3,7 @@
 const confList = [
     // routerUrl, fileUrl
     ['/', '/index'],
-    ['/catalogue/:type/:page', '/catalogue/[type]'],
+    ['/catalogue/:type/:page', '/catalogue/[type]/[page]'],
     ['/paper/:id', '/paper/[id]'],
     ['/profile/:uuid', '/profile/[uuid]'],
     ['/activate/:uuid', '/activate/[uuid]'],

@@ -27,7 +27,7 @@ const Paper = withRouter(function(props) {
 });
 
 Paper.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=paper`);
+    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=paper`);
     const seoResult = await seoRes.json();
     
     const initProps = {

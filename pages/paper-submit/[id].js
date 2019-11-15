@@ -124,7 +124,7 @@ const paperSubmit = withRouter(function(props) {
 });
 
 paperSubmit.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=paperSubmit`);
+    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=paperSubmit`);
     const seoResult = await seoRes.json();
     
     const initProps = {

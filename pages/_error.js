@@ -146,14 +146,10 @@ Error.propTypes = {
     seo: PropTypes.object,
     statusCode: PropTypes.number,
 };
-Error.getInitialProps = async ctx => {
-    const {
-        res,
-        err,
-    } = ctx;
+Error.getInitialProps = async ({ res, err, }) => {
     const statusCode = res ? res.statusCode : err ? err.statusCode : 0;
 
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=error&statusCode=${statusCode}`);
+    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=error&statusCode=${statusCode}`);
     const seoResult = await seoRes.json();
 
     const initProps = {

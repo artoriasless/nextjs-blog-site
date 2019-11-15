@@ -27,7 +27,7 @@ const Profile = withRouter(function(props) {
 });
 
 Profile.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=profile`);
+    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=profile`);
     const seoResult = await seoRes.json();
     
     const initProps = {

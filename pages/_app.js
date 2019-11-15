@@ -13,7 +13,7 @@ const makeStore = (initialState, options) => createStore(reducers, initialState,
 // due to the need of withRouter
 // the maintain suggest not using pure functional style
 class MyApp extends App {
-    static async getInitialProps({Component, ctx}) {
+    static async getInitialProps({ Component, ctx, }) {
         const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
         return { pageProps };

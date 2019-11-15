@@ -77,7 +77,7 @@ Home = connect(
     mapDispatch2Props,
 )(UI_Home);
 Home.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?page=home`);
+    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=home`);
     const seoResult = await seoRes.json();
     
     const initProps = {

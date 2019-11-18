@@ -4,6 +4,9 @@ import fetch from 'isomorphic-unfetch';
 
 import config from 'config';
 import {
+    getFetchUrl,
+} from 'lib';
+import {
     TitleGenerator,
     HeadGenerator,
     Layout,
@@ -149,8 +152,13 @@ Error.propTypes = {
 Error.getInitialProps = async ({ res, err, }) => {
     const statusCode = res ? res.statusCode : err ? err.statusCode : 0;
 
-    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=error&statusCode=${statusCode}`);
-    const seoResult = await seoRes.json();
+    const seoData = {
+        pageName: 'error',
+        statusCode,
+    };
+    const seoReq = getFetchUrl('util.seo', seoData);
+    const seoRes = seoReq && await fetch(seoReq);
+    const seoResult = seoReq && await seoRes.json();
 
     const initProps = {
         seo: seoResult.data,

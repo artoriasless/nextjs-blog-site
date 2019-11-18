@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
-import config from 'config';
+import {
+    getFetchUrl,
+} from 'lib';
 import {
     TitleGenerator,
     HeadGenerator,
@@ -77,8 +79,12 @@ Home = connect(
     mapDispatch2Props,
 )(UI_Home);
 Home.getInitialProps = async () => {
-    const seoRes = await fetch(`${config.domain}/api/util/seo?pageName=home`);
-    const seoResult = await seoRes.json();
+    const seoData = {
+        pageName: 'home',
+    };
+    const seoReq = getFetchUrl('util.seo', seoData);
+    const seoRes = seoReq && await fetch(seoReq);
+    const seoResult = seoReq && await seoRes.json();
     
     const initProps = {
         seo: seoResult.data,

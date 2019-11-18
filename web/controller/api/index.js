@@ -5,6 +5,8 @@ const koaCors = require('koa2-cors');
 const config = require('../../../config');
 
 const user = require('./user');
+const catalogue = require('./catalogue');
+const paper = require('./paper');
 const util = require('./util');
 
 const GET = 'GET';
@@ -23,6 +25,13 @@ const confiList = [
     ['/api/user/update-pwd', cors, POST, user.updatePwd],
     ['/api/user/reset-pwd', cors, POST, user.resetPwd],
     ['/api/user/send-activate-mail', cors, POST, user.sendActivateMail],
+
+    // Catalogue
+    ['/api/catalogue/page', cors, GET, catalogue.page],
+
+    // Paper
+    ['/api/paper/filter-count', cors, GET, paper.filterCount],
+    ['/api/paper/:paperId', cors, GET, paper.findOne],
 
     // Util
     ['/api/util/seo', cors, GET, util.seo],

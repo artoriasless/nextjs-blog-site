@@ -1,5 +1,8 @@
 @import '~style/common/variables.scss';
 
+@import '~style/components/common-navbar.scss';
+@import '~style/components/common-login-modal.scss';
+
 .page-home {
     .main {
         text-align: center;

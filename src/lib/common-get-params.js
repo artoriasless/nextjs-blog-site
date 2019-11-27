@@ -11,7 +11,7 @@ const getParams = ({ isServer, pathname, asPath, query, }) => {
             paramVal = '',
         ] = queryParam.split('=');
 
-        params[paramName] = paramVal;
+        params[paramName] = decodeURIComponent(paramVal);
     });
 
     if (isServer) {
@@ -22,11 +22,15 @@ const getParams = ({ isServer, pathname, asPath, query, }) => {
         pathArr.forEach((item, idx) => {
             if (/^\[([^[\]]+)\]$/.test(item)) {
                 key = item.slice(1, -1);
-                params[key] = asPathArr[idx];
+                params[key] = decodeURIComponent(asPathArr[idx]);
             }
         });
 
         return params;
+    }
+
+    for (let key in query) {
+        query[key] = decodeURIComponent(query[key]);
     }
 
     return query;

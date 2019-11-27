@@ -51,7 +51,7 @@ const UI_Home = function(props) {
                                     </a>
                                 </div>
                                 <div className="quick-link-content">
-                                    <Link href="/catalogue/[type]" as="/catalogue/all">
+                                    <Link href="/catalogue/[type]/[page]" as="/catalogue/all/1">
                                         <a className="quick-link">
                                             <i className="link-img blog-link"></i>
                                             view blog

@@ -4,6 +4,9 @@ import Layout from './common-layout';
 
 import Navbar from './common-navbar';
 import LoginModal from './common-login-modal';
+import FilterCount from './common-filter-count';
+
+import PaperCatalogue from './paper-catalogue';
 
 export {
     TitleGenerator,
@@ -12,4 +15,7 @@ export {
 
     Navbar,
     LoginModal,
+    FilterCount,
+
+    PaperCatalogue,
 };

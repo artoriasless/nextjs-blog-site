@@ -1,0 +1,168 @@
+@import '~style/common/variables.scss';
+
+.page-section-body {
+    .paper-filter-toggler {
+        position: fixed;
+        display: block;
+        width: 25px;
+        height: 25px;
+        top: 0;
+        left: 0;
+        margin-left: 0.25rem;
+        margin-top: calc(30px + 0.75rem);
+        color: $colorWhite;
+        z-index: 99999;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .fa {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            border-radius: 3px;
+            color: $colorWhite;
+            font-size: 1rem;
+            text-align: center;
+            background-color: $colorTheme;
+            opacity: 0.75;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .show-icon {
+            display: block;
+        }
+
+        .hide-icon {
+            display: none;
+        }
+
+        &.expanded {
+            left: auto;
+            right: 0;
+            margin-left: auto;
+            margin-right: 0.25rem;
+            
+            .show-icon {
+                display: none;
+            }
+
+            .hide-icon {
+                display: block;
+            }
+        }
+    }
+
+    .filter-container {
+        position: fixed;
+        width: calc(100% - 0.5rem);
+        height: 100%;
+        padding: 0;
+        z-index: 999;
+        background-color: $colorWhite;
+        overflow-y: auto;
+
+        .filter-content {
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid $colorGreyLighter;
+            border-radius: 5px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .filter-list {
+                padding: 0;
+                margin: 0;
+
+                .filter-list-title {
+                    height: 25px;
+                    line-height: 25px;
+                    padding: 0;
+                    margin: 0;
+                    font-weight: 300;
+                }
+
+                .filter-list-item {
+                    margin: 3px 0 3px 15px;
+                }
+
+                .item-link {
+                    position: relative;
+                    display: block;
+                    height: 20px;
+                    line-height: 20px;
+                    padding: 0 0 0 5px;
+                    border-radius: 5px;
+                    color: $colorGrey;
+                    font-size: 0.85em;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    &:hover {
+                        animation: move-animate 0.5s ease;
+                        -o-animation: move-animate 0.5s ease;
+                        -ms-animation: move-animate 0.5s ease;
+                        -moz-animation: move-animate 0.5s ease;
+                        -webkit-animation: move-animate 0.5s ease;
+                        padding-left: 15px;
+                        color: $colorTheme;
+                        text-decoration: none;
+                        background-color: #eee;
+                    }
+
+                    &:hover:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        margin-top: -5px;
+                        border-top: 5px solid transparent;
+                        border-bottom: 5px solid transparent;
+                        border-left: 5px solid $colorGrey;
+                    }
+
+                    .tag-val,
+                    .timeline-val,
+                    .tag-count,
+                    .timeline-count {
+                        display: block;
+                        height: 20px;
+                        line-height: 20px;
+                        float: left;
+                    }
+
+                    .tag-val {
+                        min-width: 80px;
+                    }
+
+                    .timeline-val {
+                        min-width: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .page-section-body {
+        .paper-filter-toggler {
+            display: none;
+        }
+
+        .filter-container {
+            position: relative;
+            padding: 5px 5px 5px 0;
+            background-color: transparent;
+        }
+    }
+}

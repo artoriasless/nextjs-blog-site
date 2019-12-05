@@ -84,7 +84,7 @@ Catalogue.getInitialProps = async ctx => {
     };
     const seoReq = getFetchUrl('util.seo', seoData);
     const seoRes = seoReq && await fetch(seoReq);
-    const seoResult = seoReq && await seoRes.json();
+    const seoResult = seoRes && await seoRes.json();
 
     const catalogueData = {
         filterType,
@@ -93,14 +93,14 @@ Catalogue.getInitialProps = async ctx => {
     };
     const catalogueReq = getFetchUrl('catalogue.page', catalogueData);
     const catalogueRes = catalogueReq && await fetch(catalogueReq);
-    const catalogueResult = catalogueReq && await catalogueRes.json();
+    const catalogueResult = catalogueRes && await catalogueRes.json();
 
     const filterCountData = {
         filterType: 'all',
     };
     const filterCountReq = getFetchUrl('paper.filterCount', filterCountData);
     const filterCountRes = filterCountReq && await fetch(filterCountReq);
-    const filterCountResult = filterCountReq && await filterCountRes.json();
+    const filterCountResult = filterCountRes && await filterCountRes.json();
     
     const initProps = {
         seo: seoResult.data,

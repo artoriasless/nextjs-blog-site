@@ -84,7 +84,7 @@ Home.getInitialProps = async () => {
     };
     const seoReq = getFetchUrl('util.seo', seoData);
     const seoRes = seoReq && await fetch(seoReq);
-    const seoResult = seoReq && await seoRes.json();
+    const seoResult = seoRes && await seoRes.json();
     
     const initProps = {
         seo: seoResult.data,

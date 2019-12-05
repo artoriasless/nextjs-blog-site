@@ -7,6 +7,7 @@ const config = require('../../../config');
 const user = require('./user');
 const catalogue = require('./catalogue');
 const paper = require('./paper');
+const reply = require('./reply');
 const util = require('./util');
 
 const GET = 'GET';
@@ -32,6 +33,12 @@ const confiList = [
     // Paper
     ['/api/paper/filter-count', cors, GET, paper.filterCount],
     ['/api/paper/:paperId', cors, GET, paper.findOne],
+
+    // Reply
+    ['/api/reply', cors, GET, reply.findMany],
+    ['/api/reply/create', cors, POST, reply.create],
+    ['/api/reply/:replyId/update', cors, POST, reply.update],
+    ['/api/reply/:replyId/delete', cors, POST, reply.delete],
 
     // Util
     ['/api/util/seo', cors, GET, util.seo],

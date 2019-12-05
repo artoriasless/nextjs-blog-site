@@ -1,11 +1,26 @@
 @import '~style/common/variables.scss';
 
+@import '~style/components/common-navbar.scss';
+@import '~style/components/common-login-modal.scss';
+@import '~style/components/common-filter-count.scss';
+
+@import '~style/components/paper-detail.scss';
+@import '~style/components/paper-reply.scss';
+
 @import '~plugins/img-viewer/index.scss';
 
 .page-paper {
-    height: calc(100% - 2.5rem - 1px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: calc(0.5rem + 30px);
+    height: calc(100% - 0.5rem - 30px);
 
     .page-section-body {
+        max-width: 1200px;
+        padding: 0.25rem;
+        margin: 0 auto;
         height: 100%;
     }
 
@@ -13,296 +28,12 @@
         max-height: 100%;
         padding: 0;
         overflow-y: auto;
-
-        .paper-content {
-            padding: 5px;
-            border: 1px solid $colorGreyLighter;
-            border-radius: 5px;
-
-            .paper-title {
-                height: 2rem;
-                line-height: 2rem;
-                margin: 15px 0 0;
-                color: $colorTheme;
-                font-weight: bold;
-                font-size: 1.25em;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-
-            .paper-subtitle {
-                position: relative;
-                height: 1.5rem;
-                line-height: 1.5rem;
-                margin: 10px 5px 5px;
-                color: $colorGreyLight;
-                font-size: 0.75em;
-
-                .subtitle-date {
-                    width: 7rem;
-                    margin-right: 0.5rem;
-                }
-
-                .subtitle-tags {
-                    max-width: calc(100% - 7.5rem);
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-            }
-
-            .paper-body {
-                padding: 0 10px;
-                margin: 15px 0;
-                font-family: $fontYahei;
-
-                h1, h2, h3, h4, h5, h6 {
-                    margin: 1rem 0 0.75rem;
-                    color: $colorGreyDark;
-                    font-size: 1.25em;
-                }
-
-                p {
-                    color: $colorGrey;
-                    line-height: 1.5rem;
-                    margin: 0 0 0.5rem;
-                    font-size: 0.8em;
-                    text-indent: 2em;
-                }
-
-                blockquote {
-                    margin: 0 0 0.25rem;
-                    color: $colorGrey;
-                }
-
-                img {
-                    display: block;
-                    width: 300px;
-                    max-width: 100%;
-                    padding: 0;
-                    margin: 0.5rem auto;
-
-                    &.tag {
-                        display: inline-block;
-                        margin: -3px 0 0 0;
-                        padding: 0;
-                        width: auto;
-                        height: 1.25rem;
-                    }
-                }
-
-                strong {
-                    font-size: 1.25em;
-                    font-weight: bolder;
-                }
-
-                pre {
-                    padding: 0.5rem;
-                    margin: 0.5rem 1em;
-                    border-radius: 5px;
-                    background-color: $colorBlackLight;
-
-                    code {
-                        padding: 0;
-                        margin: 0;
-                        color: $colorWhite;
-                        font-size: 0.75em;
-                        font-family: $fontConsola;
-                    }
-                }
-            }
-        }
-
-        .edit-paper-link {
-            position: fixed;
-            width: 2rem;
-            height: 2rem;
-            right: 0;
-            bottom: 0;
-            text-align: center;
-            opacity: 0.85;
-            z-index: 9;
-
-            .fa {
-                display: block;
-                width: 2rem;
-                height: 2rem;
-                line-height: 2rem;
-                font-size: 1.25rem;
-                text-align: center;
-            }
-        }
-    }
-}
-
-.reply-container {
-    padding: 0 15px;
-    margin: 0.5rem 0;
-
-    .reply-title {
-        height: 1.5rem;
-        line-height: 1.5rem;
-
-        .reply {
-            display: block;
-            width: 1.5rem;
-            height: 1.5rem;
-            color: $colorGreyDark;
-            font-size: 0.8em;
-            text-align: center;
-            float: right;
-
-            &:hover {
-                color: $colorTheme;
-            }
-        }
     }
 
-    .no-reply-tips {
-        padding: 0;
-        margin: 0.75rem 0;
-        color: $colorGreyLight;
-        font-size: 0.75em;
-        text-align: center;
-    }
-
-    .reply-item {
+    .paper-content {
         padding: 5px;
-        margin: 0.25rem 0 0 2.5rem;
         border: 1px solid $colorGreyLighter;
-        border-radius: 3px;
-        background-color: $colorWhite;
-
-        .user-info {
-            height: 1.6rem;
-
-            .user-avatar {
-                width: 1.6rem;
-                height: 1.6rem;
-                margin-right: 0.25rem;
-                float: left;
-
-                .avatar-img {
-                    display: block;
-                    width: 1.6rem;
-                    height: 1.6rem;
-                    padding: 0;
-                    margin: 0;
-                    border-radius: 50%;
-                }
-            }
-
-            .user-name {
-                max-width: calc(100% - 1.75rem - 10px);
-                height: 1.6rem;
-                line-height: 1.6rem;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                color: $colorTheme;
-                font-size: 0.75em;
-                float: left;
-
-                .fa-share {
-                    display: inline-block;
-                    height: 1.6rem;
-                    line-height: 1.6rem;
-                    margin: 0 0.5rem;
-                    color: $colorGrey;
-                    font-size: 0.5em;
-                }
-            }
-        }
-
-        .reply-content {
-            padding: 3px 5px;
-            margin: 3px 0;
-            border-top: 1px solid $colorWhiteDarker;
-            border-bottom: 1px solid $colorWhiteDarker;
-            color: $colorGreyDark;
-            font-size: 0.75em;
-            white-space: pre-line;
-        }
-
-        .reply-content.deleted {
-            display: inline-block;
-            height: 1.25rem;
-            line-height: 1.25rem;
-            padding: 0 10px;
-            margin: 0.5rem 0;
-            border-radius: 5px;
-            color: $colorWhite;
-            background-color: $colorGreyDark;
-        }
-
-        .reply-addition {
-            height: 1.5rem;
-            line-height: 1.5rem;
-            color: $colorGrey;
-            font-size: 0.75em;
-
-            .reply-operate {
-                display: inline-block;
-                width: 1rem;
-                margin: 0 0.25rem;
-                color: $colorGreyDark;
-                text-align: center;
-
-                &:hover {
-                    color: $colorTheme;
-                }
-
-                &:first-of-type {
-                    margin-left: 0;
-                }
-
-                &:last-of-type {
-                    margin-right: 0;
-                }
-            }
-        }
-    }
-
-    .reply-item.reply-level-4 {
-        margin-left: 2rem;
-    }
-
-    .reply-item.reply-level-3 {
-        margin-left: 1.5rem;
-    }
-
-    .reply-item.reply-level-2 {
-        margin-left: 1rem;
-    }
-
-    .reply-item.reply-level-1 {
-        margin-left: 0.5rem;
-    }
-
-    .reply-item.reply-level-0 {
-        margin-left: 0;
-    }
-}
-
-#replyModal {
-    #replyForm {
-        position: relative;
-        display: block;
-        height: 11rem;
-        margin: 0.5rem 0;
-
-        #replyInput {
-            display: block;
-            width: 100%;
-            height: 100%;
-            padding: 5px;
-            margin: 0px;
-            outline: none;
-            border: 1px solid $colorGreyLighter;
-            border-radius: 5px;
-            resize: none;
-        }
+        border-radius: 5px;
     }
 }
 

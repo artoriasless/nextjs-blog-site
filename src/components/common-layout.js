@@ -23,7 +23,7 @@ const UI_Layout = function(props) {
     useEffect(() => {
         ajaxGetUserDefault(() => {
             setTimeout(() => {
-                setFinishReq(true);
+                !finishReq && setFinishReq(true);
             }, 250);
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -14,8 +14,9 @@ import {
     stanAlert,
 } from 'lib';
 import {
+    login,
+    register,
     toggleHidden,
-    updateUserInfo,
 } from 'actions';
 
 const submitValidate = (formData, type) => {
@@ -325,7 +326,7 @@ const mapDispatch2Props = dispatch => ({
                 });
             } else {
                 if (result.success) {
-                    dispatch(updateUserInfo(result.data));
+                    dispatch(login(result.data));
                     dispatch(toggleHidden('loginModal'));
                 }
 
@@ -359,7 +360,7 @@ const mapDispatch2Props = dispatch => ({
                 });
             } else {
                 if (result.success) {
-                    dispatch(updateUserInfo(result.data));
+                    dispatch(register(result.data));
                     dispatch(toggleHidden('loginModal'));
                 }
                 

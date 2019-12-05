@@ -14,6 +14,7 @@ const defaultState = {
 
     _hidden: {
         loginModal: true,
+        replyModal: true,
     },
 };
 const reducers = (state = defaultState, action = {}) => {

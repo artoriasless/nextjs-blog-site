@@ -1,0 +1,173 @@
+@import '~style/common/variables.scss';
+
+.reply-container {
+    padding: 0 15px;
+    margin: 0.5rem 0;
+
+    .reply-title {
+        height: 1.5rem;
+        line-height: 1.5rem;
+
+        .reply {
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+            color: $colorGreyDark;
+            font-size: 0.8em;
+            text-align: center;
+            cursor: pointer;
+            float: right;
+
+            &:hover {
+                color: $colorTheme;
+            }
+        }
+    }
+
+    .no-reply-tips {
+        padding: 0;
+        margin: 0.75rem 0;
+        color: $colorGreyLight;
+        font-size: 0.75em;
+        text-align: center;
+    }
+
+    .reply-item {
+        padding: 5px;
+        margin: 0.25rem 0 0 2.5rem;
+        border: 1px solid $colorGreyLighter;
+        border-radius: 3px;
+        background-color: $colorWhite;
+
+        .user-info {
+            height: 1.6rem;
+        }
+
+        .user-avatar {
+            width: 1.6rem;
+            height: 1.6rem;
+            margin-right: 0.25rem;
+            float: left;
+        }
+
+        .avatar-img {
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            padding: 0;
+            margin: 0;
+            border-radius: 50%;
+        }
+
+        .user-name {
+            max-width: calc(100% - 1.75rem - 10px);
+            height: 1.6rem;
+            line-height: 1.6rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $colorTheme;
+            font-size: 0.75em;
+            float: left;
+
+            .fa-share {
+                display: inline-block;
+                height: 1.6rem;
+                line-height: 1.6rem;
+                margin: 0 0.5rem;
+                color: $colorGrey;
+                font-size: 0.5em;
+            }
+        }
+
+        .reply-content {
+            padding: 3px 5px;
+            margin: 3px 0;
+            border-top: 1px solid $colorWhiteDarker;
+            border-bottom: 1px solid $colorWhiteDarker;
+            color: $colorGreyDark;
+            font-size: 0.75em;
+            white-space: pre-line;
+        }
+
+        .reply-content.deleted {
+            display: inline-block;
+            height: 1.25rem;
+            line-height: 1.25rem;
+            padding: 0 10px;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            color: $colorWhite;
+            background-color: $colorGreyDark;
+        }
+
+        .reply-addition {
+            height: 1.5rem;
+            line-height: 1.5rem;
+            color: $colorGrey;
+            font-size: 0.75em;
+
+            .reply-operate {
+                display: inline-block;
+                width: 1rem;
+                margin: 0 0.25rem;
+                color: $colorGreyDark;
+                text-align: center;
+                cursor: pointer;
+
+                &:hover {
+                    color: $colorTheme;
+                }
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .reply-item.reply-level-4 {
+        margin-left: 2rem;
+    }
+
+    .reply-item.reply-level-3 {
+        margin-left: 1.5rem;
+    }
+
+    .reply-item.reply-level-2 {
+        margin-left: 1rem;
+    }
+
+    .reply-item.reply-level-1 {
+        margin-left: 0.5rem;
+    }
+
+    .reply-item.reply-level-0 {
+        margin-left: 0;
+    }
+}
+
+#replyModal {
+    #replyForm {
+        position: relative;
+        display: block;
+        height: 11rem;
+        margin: 0.5rem 0;
+    }
+
+    #replyInput {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        margin: 0px;
+        outline: none;
+        border: 1px solid $colorGreyLighter;
+        border-radius: 5px;
+        resize: none;
+    }
+}

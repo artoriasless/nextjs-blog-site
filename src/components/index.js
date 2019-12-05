@@ -7,6 +7,8 @@ import LoginModal from './common-login-modal';
 import FilterCount from './common-filter-count';
 
 import PaperCatalogue from './paper-catalogue';
+import PaperDetail from './paper-detail';
+import PaperReply from './paper-reply';
 
 export {
     TitleGenerator,
@@ -18,4 +20,6 @@ export {
     FilterCount,
 
     PaperCatalogue,
+    PaperDetail,
+    PaperReply,
 };

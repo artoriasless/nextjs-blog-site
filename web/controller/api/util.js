@@ -17,6 +17,7 @@ const util = {
             data: '',
         };
         let type;   // for catalogue
+        let tags;   // for paper
         
         switch (pageName) {
         case 'catalogue':
@@ -25,6 +26,13 @@ const util = {
             data.title = data.title.replace(/\[type\]/g, type);
             data.title = data.title.replace(/\[page\]/g, reqData.page || '1');
             data.keywords = data.keywords.replace(/\[type\]/g, type);
+            break;
+        case 'paper':
+            tags = reqData.tag;
+            tags += reqData.subtag === '' ? '' : `,${reqData.subtag.split('，').join(',')}`;
+            data.title = data.title.replace(/\[title\]/g, reqData.title);
+            data.description = data.description.replace(/\[desc\]/g, reqData.desc);
+            data.keywords = data.keywords.replace(/\[tags\]/g, tags);
             break;
         default:
             // do nothing

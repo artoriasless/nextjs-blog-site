@@ -12,6 +12,12 @@ const catalogue = {
     keywords: '前端全栈,技术笔记,[type]',
 };
 
+const paper = {
+    title: '前端_全栈_技术笔记-[title]',
+    description: '[desc]',
+    keywords: '前端全栈,技术笔记,[tags]',
+};
+
 const unknown = {
     title: '前端_全栈_技术笔记-屎蛋(Stan)的个人网站',
     description: '屎蛋(Stan)的个人网站，主要记录了工作内外，在前端全栈方面，以及Linux、Java等其他方面的一些的技术笔记。',
@@ -21,5 +27,6 @@ const unknown = {
 module.exports = {
     home,
     catalogue,
+    paper,
     default: unknown,
 };

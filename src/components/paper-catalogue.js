@@ -309,12 +309,13 @@ const PaperCatalogue = function(props) {
         filterType,
         filterParam,
     } = props;
+    const subtitle = `/${filterType}${filterType === 'all' ? '' : ('/' + filterParam)}`;
 
     return (
         <div className="catalogue-container col-xs-12 col-md-8 col-lg-9">
             <div className="catalogue-content">
                 <div className="catalogue-title">
-                    Catalogue
+                    Catalogue<span className="subtitle">{ subtitle }</span>
                 </div>
                 <hr/>
                 <CatalogueList catalogue={ catalogue } userInfo={ userInfo }/>

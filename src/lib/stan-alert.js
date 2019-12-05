@@ -45,7 +45,7 @@ const stanAlert = options => {
         useEffect(() => {
             if (autoClose) {
                 setTimeout(() => {
-                    setShow(false);
+                    show && setShow(false);
                 }, shownExpires * 1000);
             }
         // eslint-disable-next-line react-hooks/exhaustive-deps

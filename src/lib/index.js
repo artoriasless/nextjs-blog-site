@@ -3,7 +3,9 @@ import selectContent from './common-select-content';
 import getParams from './common-get-params';
 import getFetchUrl from './common-get-fetch-url';
 
+import markdown from './markdown';
 import stanAlert from './stan-alert';
+import stanConfirm from './stan-confirm';
 
 export {
     ajaxAction,
@@ -11,5 +13,7 @@ export {
     getParams,
     getFetchUrl,
 
+    markdown,
     stanAlert,
+    stanConfirm,
 };

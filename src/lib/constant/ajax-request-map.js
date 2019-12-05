@@ -46,7 +46,21 @@ const ajaxRequestMap = {
     catalogue: {
         page: {
             url: '/api/catalogue/page', type: GET,
-        }
+        },
+    },
+    reply: {
+        list: {
+            url: '/api/reply', type: GET,
+        },
+        create: {
+            url: '/api/reply/create', type: POST,
+        },
+        update: {
+            url: '/api/reply/:id/update', type: POST,
+        },
+        delete: {
+            url: '/api/reply/:id/delete', type: POST,
+        },
     },
 };
 

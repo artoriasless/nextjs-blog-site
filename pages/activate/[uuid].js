@@ -15,7 +15,9 @@ const activate = withRouter(function(props) {
     return (
         <>
             <TitleGenerator title={ seo.title }/>
-            <HeadGenerator seo={ seo }/>
+            <HeadGenerator seo={ seo }>
+                <meta name="robots" content="nofollow"/>
+            </HeadGenerator>
             <Layout>
                 <div className="page-activate">
                     <h1>activate Page</h1>

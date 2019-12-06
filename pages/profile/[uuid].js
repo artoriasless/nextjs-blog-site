@@ -15,7 +15,9 @@ const Profile = withRouter(function(props) {
     return (
         <>
             <TitleGenerator title={ seo.title }/>
-            <HeadGenerator seo={ seo }/>
+            <HeadGenerator seo={ seo }>
+                <meta name="robots" content="nofollow"/>
+            </HeadGenerator>
             <Layout>
                 <div className="page-profile">
                     <h1>Profile Page</h1>

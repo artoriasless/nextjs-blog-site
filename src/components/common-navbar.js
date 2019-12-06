@@ -58,7 +58,7 @@ const NavbarRight = function(props) {
                         <div className={ `dropdown-menu ${showAdminLinks ? 'show' : ''}` }>
                             <div className="dropdown-item">
                                 <Link href="/paper-submit/[id]" as="/paper-submit/0">
-                                    <a className="nav-link">
+                                    <a className="nav-link" rel="nofollow">
                                         Add Paper
                                     </a>
                                 </Link>
@@ -78,7 +78,7 @@ const NavbarRight = function(props) {
                 {
                     userInfo.id && userInfo.email && userInfo.password ? (
                         <Link href="/profile/[uuid]" as={ `/profile/${userInfo.uuid}` }>
-                            <a className="nav-link user-center-link">
+                            <a className="nav-link user-center-link" rel="nofollow">
                                 <img className="user-avatar" src={ avatarLink }/>
                                 <span className={ userNameClass }>
                                     { userName }

@@ -31,7 +31,10 @@ const CommonHeadGenerator = function(props) {
 
 CommonHeadGenerator.propTypes = {
     seo: PropTypes.object,
-    children: PropTypes.array,
+    children: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array,
+    ]),
 };
 
 export default CommonHeadGenerator;

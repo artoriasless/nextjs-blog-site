@@ -8,6 +8,7 @@ const confList = [
     ['/profile/:uuid', '/profile/[uuid]'],
     ['/activate/:uuid', '/activate/[uuid]'],
     ['/paper-submit/:id', '/paper-submit/[id]'],
+    ['/share-paper-submit/:id', '/share-paper-submit/[id]'],
 ];
 
 const controllerFunc = (app, router, routerUrl, fileUrl) => {

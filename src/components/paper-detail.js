@@ -24,8 +24,7 @@ const initImgViewer = () => {
                     footToolbar: [
                         'zoomIn',
                         'zoomOut',
-                        'actualSize',
-                        'rotateRight'
+                        'actualSize'
                     ],
                     initMaximized: true,
                     zIndex: 999999,

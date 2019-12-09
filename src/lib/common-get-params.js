@@ -15,8 +15,8 @@ const getParams = ({ isServer, pathname, asPath, query, }) => {
     });
 
     if (isServer) {
-        const pathArr = pathname.split('/');
-        const asPathArr = asPath.split('/');
+        const pathArr = pathname.split(/(\/|\?)/);
+        const asPathArr = asPath.split(/(\/|\?)/);
         let key;
 
         pathArr.forEach((item, idx) => {

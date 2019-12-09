@@ -19,9 +19,6 @@ const ajaxRequestMap = {
         register: {
             url: '/api/user/register', type: POST,
         },
-        sendActivateMail: {
-            url: '/api/user/send-activate-mail', type: POST,
-        },
         activate: {
             url: '/api/user/activate', type: POST,
         },
@@ -31,8 +28,14 @@ const ajaxRequestMap = {
         updatePwd: {
             url: '/api/user/update-pwd', type: POST,
         },
+        updateAvatar: {
+            url: '/api/user/update-avatar', type: POST,
+        },
         resetPwd: {
             url: '/api/user/reset-pwd', type: POST,
+        },
+        sendActivateMail: {
+            url: '/api/user/send-activate-mail', type: POST,
         },
     },
     paper: {
@@ -60,6 +63,11 @@ const ajaxRequestMap = {
         },
         delete: {
             url: '/api/reply/:id/delete', type: POST,
+        },
+    },
+    message: {
+        page: {
+            url: '/api/message/page', type: GET,
         },
     },
 };

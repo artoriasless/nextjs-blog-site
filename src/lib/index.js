@@ -6,6 +6,7 @@ import getFetchUrl from './common-get-fetch-url';
 import markdown from './markdown';
 import stanAlert from './stan-alert';
 import stanConfirm from './stan-confirm';
+import stanLoading from './stan-loading';
 
 export {
     ajaxAction,
@@ -16,4 +17,5 @@ export {
     markdown,
     stanAlert,
     stanConfirm,
+    stanLoading,
 };

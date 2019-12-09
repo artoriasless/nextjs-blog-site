@@ -8,6 +8,7 @@ const user = require('./user');
 const catalogue = require('./catalogue');
 const paper = require('./paper');
 const reply = require('./reply');
+const message = require('./message');
 const util = require('./util');
 
 const GET = 'GET';
@@ -24,6 +25,7 @@ const confiList = [
     ['/api/user/activate', cors, POST, user.activate],
     ['/api/user/update-info', cors, POST, user.updateInfo],
     ['/api/user/update-pwd', cors, POST, user.updatePwd],
+    ['/api/user/update-avatar', cors, POST, user.updateAvatar],
     ['/api/user/reset-pwd', cors, POST, user.resetPwd],
     ['/api/user/send-activate-mail', cors, POST, user.sendActivateMail],
 
@@ -39,6 +41,9 @@ const confiList = [
     ['/api/reply/create', cors, POST, reply.create],
     ['/api/reply/:replyId/update', cors, POST, reply.update],
     ['/api/reply/:replyId/delete', cors, POST, reply.delete],
+
+    // Message
+    ['/api/message/page', cors, GET, message.page],
 
     // Util
     ['/api/util/seo', cors, GET, util.seo],

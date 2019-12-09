@@ -7,7 +7,7 @@ const {
 const copyObj = obj => JSON.parse(JSON.stringify(obj));
 
 const util = {
-    seo: async ctx => {
+    async seo(ctx) {
         const reqData = ctx.query || {};
         const pageName = reqData.pageName || '';
         const data = copyObj(seoTpl[pageName] || seoTpl.default);

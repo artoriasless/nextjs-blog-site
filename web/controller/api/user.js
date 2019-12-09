@@ -5,12 +5,11 @@ const path = require('path');
 const uuid = require('uuid/v4');
 const hash = require('object-hash');
 
+const resolveFileOpts = require('../../lib/resolve-file-opts');
 const config = require('../../../config');
 const service = require('../../../service');
 const userService = service.user;
 const utilService = service.util;
-
-const util = require('./util');
 
 module.exports = {
     async getUserDefault(ctx) {
@@ -204,6 +203,27 @@ module.exports = {
             data: user,
         };
     },
+    async updateAvatar(ctx) {
+        const user = ctx.session.user || {};
+        let result = {};
+
+        if (user.id && user.uuid && user.email) {
+            const fileOpts = await resolveFileOpts(ctx.request, ctx, 'USER_AVATAR');
+
+            result = await utilService.async.upload(fileOpts);
+
+            if (result.success) {
+                result.message = fileOpts.message;
+                result.data = fileOpts.data;
+            }
+        } else {
+            result.success = false;
+            result.message = 'please login first!';
+            result.data = null;
+        }
+
+        ctx.body = result;
+    },
     async resetPwd(ctx) {
         const newPwd = Date.parse(new Date());
         const jsonData = ctx.request.body;
@@ -247,10 +267,19 @@ module.exports = {
     },
     async sendActivateMail(ctx) {
         const user = ctx.session.user;
+        const hashVal = hash.sha1(user.uuid);
+        const activateLink = `${config.domain}/activate/${user.uuid}?stamp=${hashVal}`;
+        const emailTpl = fs.readFileSync(path.resolve(__dirname, '../../template/activate-email.tpl')).toString();
+        const emailOpts = {
+            to: user.email,
+            subject: 'Activate Your MonkingStand Account',
+            text: 'activate your monkingstand account to comment',
+            html: emailTpl.replace(/<activateLink>/g, activateLink),
+        };
         var success = true;
         var message = 'activate email has been sent!';
 
-        util.sendActivateMail(user.uuid, user.email);
+        utilService.email(emailOpts);
 
         ctx.body = {
             success,

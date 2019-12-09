@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import {
     Fade,
+    Col,
 } from 'react-bootstrap';
 
 const FilterContentLatest = function(props) {
@@ -142,11 +143,16 @@ const CommonFilterCount = function(props) {
                 <i onClick={ togglePaperFilter } className="fa fa-compress hide-icon pull-right"></i>
             </span>
             <Fade in={ expanded }>
-                <div className={ `filter-container col-xs-12 col-md-4 col-lg-3 ${expanded ? '' : 'hidden'}` }>
+                <Col
+                    xs={ 12 }
+                    md={ 4 }
+                    lg={ 3 }
+                    className={ `filter-container ${expanded ? '' : 'hidden'}` }
+                >
                     <FilterContentLatest filter={ latest }/>
                     <FilterContentTag filter={ tag }/>
                     <FilterContentTimeline filter={ timeline }/>
-                </div>
+                </Col>
             </Fade>
         </>
     );

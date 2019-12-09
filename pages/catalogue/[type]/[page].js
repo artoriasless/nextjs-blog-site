@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 import {
+    Row,
+} from 'react-bootstrap';
+
+import {
     getParams,
     getFetchUrl,
 } from 'lib';
@@ -37,7 +41,7 @@ const UI_Catalogue = function(props) {
             <Layout>
                 <div className="page-catalogue">
                     <Navbar/>
-                    <div className="page-section-body row">
+                    <Row className="page-section-body">
                         <FilterCount filterCount={ filterCount }/>
                         <PaperCatalogue 
                             catalogue={ catalogue }
@@ -45,7 +49,7 @@ const UI_Catalogue = function(props) {
                             filterType={ filterType }
                             filterParam={ filterParam }
                         />
-                    </div>
+                    </Row>
                 </div>
             </Layout>
             <LoginModal/>

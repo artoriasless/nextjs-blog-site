@@ -14,7 +14,7 @@ import {
     stanConfirm,
 } from 'lib';
 import {
-    toggleHidden,
+    toggleShow,
 } from 'actions';
 
 const submitValidate = reply => {
@@ -41,7 +41,7 @@ const getReply = (paperId, cbFunc) => {
     const jsonData = {
         paperId,
     };
-    const successFunc = function(result) {
+    const successFunc = result => {
         if (result.success) {
             cbFunc && cbFunc(result);
         } else {
@@ -51,7 +51,7 @@ const getReply = (paperId, cbFunc) => {
             });
         }
     };
-    const failFunc = function(err) {
+    const failFunc = err => {
         stanAlert({
             title: 'Warning!',
             content: err.toString(),
@@ -63,7 +63,7 @@ const getReply = (paperId, cbFunc) => {
 };
 const addReply = (replyForm, cbFunc) => {
     const jsonData = Object.assign({}, replyForm);
-    const successFunc = function(result) {
+    const successFunc = result => {
         if (result.success) {
             cbFunc && cbFunc(result);
         } else {
@@ -73,7 +73,7 @@ const addReply = (replyForm, cbFunc) => {
             });
         }
     };
-    const failFunc = function(err) {
+    const failFunc = err => {
         stanAlert({
             title: 'Warning!',
             content: err.toString(),
@@ -87,7 +87,7 @@ const addReply = (replyForm, cbFunc) => {
 };
 const updateReply = (replyForm, cbFunc) => {
     const jsonData = Object.assign({}, replyForm);
-    const successFunc = function(result) {
+    const successFunc = result => {
         if (result.success) {
             cbFunc && cbFunc(result);
         } else {
@@ -97,7 +97,7 @@ const updateReply = (replyForm, cbFunc) => {
             });
         }
     };
-    const failFunc = function(err) {
+    const failFunc = err => {
         stanAlert({
             title: 'Warning!',
             content: err.toString(),
@@ -111,7 +111,7 @@ const updateReply = (replyForm, cbFunc) => {
 };
 const deleteReply = (replyForm, cbFunc) => {
     const jsonData = Object.assign({}, replyForm);
-    const successFunc = function(result) {
+    const successFunc = result => {
         if (result.success) {
             cbFunc && cbFunc(result);
         } else {
@@ -121,7 +121,7 @@ const deleteReply = (replyForm, cbFunc) => {
             });
         }
     };
-    const failFunc = function(err) {
+    const failFunc = err => {
         stanAlert({
             title: 'Warning!',
             content: err.toString(),
@@ -137,8 +137,8 @@ const ReplyModal = function(props) {
         toggleReplyModal,
         replyForm,
         setReplyForm,
-        _hidden,
         submitForm,
+        replyModalShow,
     } = props;
     const operate = replyForm.replyType === 'EDIT' ? 'Update' : 'Add';
     const $replyInput = useRef(null);
@@ -164,7 +164,7 @@ const ReplyModal = function(props) {
         <Modal
             id="replyModal"
             className="common-modal"
-            show={ !_hidden.replyModal }
+            show={ replyModalShow }
             onHide={ toggleReplyModal }
             centered={ true }
         >
@@ -371,14 +371,14 @@ const UI_PaperReply = function(props) {
         replyList,
         userInfo,
         showLoginModal,
-        toggleReplyModal,
-        _hidden,
     } = props;
     const [reply, setReply] = useState({
         paperId,
         replyList: [],
     });
     const [replyForm, setReplyForm] = useState({});
+    const [replyModalShow, setReplyModalShow] = useState(false);
+    const toggleReplyModal = () => setReplyModalShow(!replyModalShow);
     const submitCB = () => {
         getReply(paperId, result => {
             setReply({
@@ -459,16 +459,15 @@ const UI_PaperReply = function(props) {
                 toggleReplyModal={ toggleReplyModal }
                 setReplyForm={ setReplyForm }
                 replyForm={ replyForm }
-                _hidden={ _hidden }
                 submitForm={ submitForm }
+                replyModalShow={ replyModalShow }
             />
         </>
     );
 };
 const mapState2Props = state => state;
 const mapDispatch2Props = dispatch => ({
-    showLoginModal: () => dispatch(toggleHidden('loginModal')),
-    toggleReplyModal: () => dispatch(toggleHidden('replyModal')),
+    showLoginModal: () => dispatch(toggleShow('loginModal')),
 });
 let PaperReply;
 
@@ -476,8 +475,8 @@ ReplyModal.propTypes = {
     toggleReplyModal: PropTypes.func,
     replyForm: PropTypes.object,
     setReplyForm: PropTypes.func,
-    _hidden: PropTypes.object,
     submitForm: PropTypes.func,
+    replyModalShow: PropTypes.bool,
 };
 ReplyList.propTypes = {
     reply: PropTypes.object,
@@ -490,8 +489,6 @@ UI_PaperReply.propTypes = {
     replyList: PropTypes.array,
     userInfo: PropTypes.object,
     showLoginModal: PropTypes.func,
-    toggleReplyModal: PropTypes.func,
-    _hidden: PropTypes.object,
 };
 PaperReply = connect(
     mapState2Props,

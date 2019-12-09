@@ -2,6 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
+import {
+    Col,
+} from 'react-bootstrap';
+
 const PagerHead = function(props) {
     return (
         <li className="page-item">
@@ -312,7 +316,12 @@ const PaperCatalogue = function(props) {
     const subtitle = `/${filterType}${filterType === 'all' ? '' : ('/' + filterParam)}`;
 
     return (
-        <div className="catalogue-container col-xs-12 col-md-8 col-lg-9">
+        <Col
+            xs={ 12 }
+            md={ 8 }
+            lg={ 9 }
+            className="catalogue-container"
+        >
             <div className="catalogue-content">
                 <div className="catalogue-title">
                     Catalogue<span className="subtitle">{ subtitle }</span>
@@ -325,7 +334,7 @@ const PaperCatalogue = function(props) {
                     catalogue={ catalogue }
                 />
             </div>
-        </div>
+        </Col>
     );
 };
 

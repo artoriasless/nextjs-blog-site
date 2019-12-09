@@ -5,6 +5,11 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 import {
+    Row,
+    Col,
+} from 'react-bootstrap';
+
+import {
     getParams,
     getFetchUrl,
 } from 'lib';
@@ -38,9 +43,14 @@ const UI_Paper = function(props) {
             <Layout>
                 <div className="page-paper">
                     <Navbar/>
-                    <div className="page-section-body row">
+                    <Row className="page-section-body">
                         <FilterCount filterCount={ filterCount }/>
-                        <div className="paper-container col-xs-12 col-md-8 col-lg-9">
+                        <Col
+                            xs={ 12 }
+                            md={ 8 }
+                            lg={ 9 }
+                            className="paper-container"
+                        >
                             <div className="paper-content">
                                 <PaperDetail paper={ paper } userInfo={ userInfo }/>
                                 <hr/>
@@ -50,8 +60,8 @@ const UI_Paper = function(props) {
                                     userInfo={ userInfo }
                                 />
                             </div>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </div>
             </Layout>
             <LoginModal/>

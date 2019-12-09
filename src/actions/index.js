@@ -7,7 +7,8 @@ import register from './register';
 import updateUserInfo from './update-user-info';
 import updatePwd from './update-pwd';
 
-import toggleHidden from './toggle-hidden';
+import toggleShow from './toggle-show';
+import increaseCount from './increase-count';
 
 export {
     actionTypes,
@@ -19,5 +20,6 @@ export {
     updateUserInfo,
     updatePwd,
 
-    toggleHidden,
+    toggleShow,
+    increaseCount,
 };

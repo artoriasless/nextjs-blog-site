@@ -5,7 +5,8 @@ const REGISTER = 'REGISTER';
 const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 const UPDATE_PWD = 'UPDATE_PWD';
 
-const TOGGLE_HIDDEN = 'TOGGLE_HIDDEN';
+const TOGGLE_SHOW = 'TOGGLE_SHOW';
+const INCREASE_COUNT = 'INCREASE_COUNT';
 
 const actionTypes =  {
     GET_USER_DEFAULT,
@@ -15,7 +16,8 @@ const actionTypes =  {
     UPDATE_USER_INFO,
     UPDATE_PWD,
 
-    TOGGLE_HIDDEN,
+    TOGGLE_SHOW,
+    INCREASE_COUNT,
 };
 
 export default actionTypes;

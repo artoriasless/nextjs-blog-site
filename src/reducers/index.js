@@ -6,15 +6,20 @@ import logoutFunc from './logout';
 import registerFunc from './register';
 import updateUserInfoFunc from './update-user-info';
 import updatePwdFunc from './update-pwd';
-import toggleHidden from './toggle-hidden';
+import toggleShow from './toggle-show';
+import increaseCount from './increase-count';
 
 const defaultState = {
     isLogin: false,
+    hasReqDefault: false,
     userInfo: {},
 
-    _hidden: {
-        loginModal: true,
-        replyModal: true,
+    _show: {
+        loginModal: false,
+    },
+
+    _count: {
+        avatar: 0,
     },
 };
 const reducers = (state = defaultState, action = {}) => {
@@ -38,8 +43,11 @@ const reducers = (state = defaultState, action = {}) => {
     case actionTypes.UPDATE_PWD:
         return updatePwdFunc(state, action);
     
-    case actionTypes.TOGGLE_HIDDEN:
-        return toggleHidden(state, action);
+    case actionTypes.TOGGLE_SHOW:
+        return toggleShow(state, action);
+    
+    case actionTypes.INCREASE_COUNT:
+        return increaseCount(state, action);
 
     default:
         return state;

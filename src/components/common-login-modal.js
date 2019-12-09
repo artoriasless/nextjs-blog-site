@@ -16,7 +16,7 @@ import {
 import {
     login,
     register,
-    toggleHidden,
+    toggleShow,
 } from 'actions';
 
 const submitValidate = (formData, type) => {
@@ -120,7 +120,7 @@ const resetPwdValidate = email => {
 const UI_LoginModal = function(props) {
     const {
         isLogin,
-        _hidden,
+        _show,
         hideLoginModal,
         ajaxLogin,
         ajaxRegister,
@@ -209,7 +209,7 @@ const UI_LoginModal = function(props) {
         <Modal
             id="loginModal"
             centered={ true }
-            show={ !_hidden.loginModal } 
+            show={ _show.loginModal } 
             onHide={ hideLoginModal }
             className="common-modal"
         >
@@ -314,7 +314,7 @@ const UI_LoginModal = function(props) {
 };
 const mapState2Props = state => state;
 const mapDispatch2Props = dispatch => ({
-    hideLoginModal: () => dispatch(toggleHidden('loginModal')),
+    hideLoginModal: () => dispatch(toggleShow('loginModal')),
     ajaxLogin: loginForm => {
         const jsonData = loginForm;
         const successFunc = result => {
@@ -327,7 +327,7 @@ const mapDispatch2Props = dispatch => ({
             } else {
                 if (result.success) {
                     dispatch(login(result.data));
-                    dispatch(toggleHidden('loginModal'));
+                    dispatch(toggleShow('loginModal'));
                 }
 
                 stanAlert({
@@ -361,7 +361,7 @@ const mapDispatch2Props = dispatch => ({
             } else {
                 if (result.success) {
                     dispatch(register(result.data));
-                    dispatch(toggleHidden('loginModal'));
+                    dispatch(toggleShow('loginModal'));
                 }
                 
                 stanAlert({
@@ -388,7 +388,7 @@ let CommonLoginModal;
 
 UI_LoginModal.propTypes = {
     isLogin: PropTypes.bool,
-    _hidden: PropTypes.object,
+    _show: PropTypes.object,
     hideLoginModal: PropTypes.func,
     ajaxLogin: PropTypes.func,
     ajaxRegister: PropTypes.func,

@@ -16,7 +16,7 @@ import {
     stanAlert,
 } from 'lib';
 import {
-    toggleHidden,
+    toggleShow,
     logout,
 } from 'actions';
 
@@ -33,6 +33,7 @@ const checkUserAvatar = (uuid, cbFunc) => {
 };
 const NavbarRight = function(props) {
     const {
+        _count,
         userInfo,
         ajaxLogout,
     } = props;
@@ -43,9 +44,12 @@ const NavbarRight = function(props) {
 
     useEffect(() => {
         checkUserAvatar(userInfo.uuid, () => {
-            setAvatarLink(`${config.ossPublic.userPrefix}/${userInfo.uuid}.jpg`);
+            const stamp = _count.avatar ? `?count=${_count.avatar}` : '';
+
+            setAvatarLink(`${config.ossPublic.userPrefix}/${userInfo.uuid}.jpg${stamp}`);
         });
-    }, [userInfo.uuid]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [userInfo.uuid, _count.avatar]);
 
     return (
         <Nav className="justify-content-end">
@@ -106,6 +110,7 @@ const NavbarRight = function(props) {
 };
 const UI_Navbar = function(props) {
     const {
+        _count,
         userInfo,
         showLoginModal,
         ajaxLogout,
@@ -144,7 +149,11 @@ const UI_Navbar = function(props) {
                     <i className="fa"></i>
                 </Navbar.Toggle>
                 <Navbar.Collapse id="navbarRight">
-                    <NavbarRight userInfo={ userInfo } ajaxLogout={ ajaxLogout }/>
+                    <NavbarRight
+                        userInfo={ userInfo }
+                        ajaxLogout={ ajaxLogout }
+                        _count={ _count }
+                    />
                 </Navbar.Collapse>
             </Navbar>
         </div>
@@ -153,7 +162,7 @@ const UI_Navbar = function(props) {
 
 const mapState2Props = state => state;
 const mapDispatch2Props = dispatch => ({
-    showLoginModal: () => dispatch(toggleHidden('loginModal')),
+    showLoginModal: () => dispatch(toggleShow('loginModal')),
     ajaxLogout: () => {
         const successFunc = result => {
             if (result.success === undefined) {
@@ -190,10 +199,12 @@ const mapDispatch2Props = dispatch => ({
 let CommonNavbar;
 
 NavbarRight.propTypes = {
+    _count: PropTypes.object,
     userInfo: PropTypes.object,
     ajaxLogout: PropTypes.func,
 };
 UI_Navbar.propTypes = {
+    _count: PropTypes.object,
     userInfo: PropTypes.object,
     showLoginModal: PropTypes.func,
     ajaxLogout: PropTypes.func,

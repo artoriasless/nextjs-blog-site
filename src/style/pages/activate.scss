@@ -1,0 +1,8 @@
+@import '~style/common/variables.scss';
+
+@import '~style/components/common-navbar.scss';
+@import '~style/components/common-login-modal.scss';
+
+.app .stan-loading-container {
+    background-color: transparent
+}

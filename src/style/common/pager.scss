@@ -22,60 +22,60 @@
 
     .pager-content {
         float: right;
+    }
 
-        .pagination {
-            margin: 0;
+    .pagination {
+        margin: 0;
+    }
 
-            .page-item {
-                .page-link {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    line-height: calc(1.5rem - 2px);
-                    padding: 0;
-                    margin: 0 2px;
-                    border: 1px solid $colorGreyLight;
-                    border-radius: 50%;
-                    background-color: #fff;
-                    color: $colorTheme;
-                    font-size: 0.75em;
-                    text-align: center;
 
-                    &:focus {
-                        box-shadow: none;
-                        background-color: #fff;
-                    }
-                }
+    .page-link {
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: calc(1.5rem - 2px);
+        padding: 0;
+        margin: 0 2px;
+        border: 1px solid $colorGreyLight;
+        border-radius: 50%;
+        background-color: #fff;
+        color: $colorTheme;
+        font-size: 0.75em;
+        text-align: center;
+        cursor: pointer;
 
-                .page-link.ellipsis {
-                    border-color: transparent;
-                    color: $colorGreyLight;
-                    background-color: transparent;
-                    pointer-events: none;
-                }
-
-                .page-link.active {
-                    border-color: $colorTheme;
-                    color: #fff;
-                    background-color: $colorTheme;
-                }
-
-                .page-link.disable {
-                    border-color: $colorGreyLighter;
-                    color: $colorGrey;
-                    background-color: $colorGreyLighter;
-                    pointer-events: none;
-                }
-
-                &:first-child .page-link {
-                    border-radius: 50%;
-                    margin-left: 0;
-                }
-
-                &:last-child .page-link {
-                    border-radius: 50%;
-                    margin-right: 0;
-                }
-            }
+        &:focus {
+            box-shadow: none;
+            background-color: #fff;
         }
+    }
+
+    .page-link.ellipsis {
+        border-color: transparent;
+        color: $colorGreyLight;
+        background-color: transparent;
+        pointer-events: none;
+    }
+
+    .page-link.active {
+        border-color: $colorTheme;
+        color: #fff;
+        background-color: $colorTheme;
+    }
+
+    .page-link.disable {
+        border-color: $colorGreyLighter;
+        color: $colorGrey;
+        background-color: $colorGreyLighter;
+        pointer-events: none;
+    }
+
+    .page-item:first-child .page-link {
+        border-radius: 50%;
+        margin-left: 0;
+    }
+
+    .page-item:last-child .page-link {
+        border-radius: 50%;
+        margin-right: 0;
     }
 }

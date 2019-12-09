@@ -6,9 +6,13 @@ import Navbar from './common-navbar';
 import LoginModal from './common-login-modal';
 import FilterCount from './common-filter-count';
 
+import Pager from './common-pager';
+
 import PaperCatalogue from './paper-catalogue';
 import PaperDetail from './paper-detail';
 import PaperReply from './paper-reply';
+
+import ClockShow from './clock-show';
 
 export {
     TitleGenerator,
@@ -22,4 +26,7 @@ export {
     PaperCatalogue,
     PaperDetail,
     PaperReply,
+
+    ClockShow,
+    Pager,
 };

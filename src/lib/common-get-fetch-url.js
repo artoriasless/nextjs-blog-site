@@ -30,7 +30,15 @@ const getFetchUrl = (ajaxName, jsonData) => {
         fetchObj.url = fetchObj.url.replace(paramVariable, paramValue);
     }
 
-    let fetchUrl = `${config.domain}${fetchObj.url}`;
+    let fetchUrl;
+    
+    try {
+        document.querySelector('#isBrowser');
+        
+        fetchUrl = `${config.domain}${fetchObj.url}`;
+    } catch (err) { // eslint-disable-line
+        fetchUrl = `http://127.0.0.1:${config.port}${fetchObj.url}`;
+    }
 
     if (fetchUrl && fetchObj.type === 'GET') {
         const dataKeyArr = Object.keys(jsonData);

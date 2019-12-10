@@ -45,12 +45,7 @@ const UI_Paper = function(props) {
                     <Navbar/>
                     <Row className="page-section-body">
                         <FilterCount filterCount={ filterCount }/>
-                        <Col
-                            xs={ 12 }
-                            md={ 8 }
-                            lg={ 9 }
-                            className="paper-container"
-                        >
+                        <Col xs={ 12 } md={ 8 } lg={ 9 } className="paper-container">
                             <div className="paper-content">
                                 <PaperDetail paper={ paper } userInfo={ userInfo }/>
                                 <hr/>

@@ -316,12 +316,7 @@ const PaperCatalogue = function(props) {
     const subtitle = `/${filterType}${filterType === 'all' ? '' : ('/' + filterParam)}`;
 
     return (
-        <Col
-            xs={ 12 }
-            md={ 8 }
-            lg={ 9 }
-            className="catalogue-container"
-        >
+        <Col xs={ 12 } md={ 8 } lg={ 9 } className="catalogue-container">
             <div className="catalogue-content">
                 <div className="catalogue-title">
                     Catalogue<span className="subtitle">{ subtitle }</span>

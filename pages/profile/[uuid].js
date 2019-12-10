@@ -411,13 +411,7 @@ const UserComment = memo(function Mod() {
     }, []);
 
     return (
-        <Col
-            xs={ 12 }
-            sm={ 12 }
-            md={ 7 }
-            lg={ 8 }
-            className="user-comment"
-        >
+        <Col xs={ 12 } sm={ 12 } md={ 7 } lg={ 8 } className="user-comment">
             <div className="comment-wrap">
                 <div className="comment-title">
                     My Messages
@@ -470,13 +464,7 @@ const UserComment = memo(function Mod() {
 }, (prevProps, nextProps) => Boolean('CONSTANT_PROPS')); // eslint-disable-line
 const UserAd = memo(function Mod() {
     return (
-        <Col
-            xs={ 12 }
-            sm={ 12 }
-            md={ 5 }
-            lg={ 4 }
-            className="user-ad"
-        >
+        <Col xs={ 12 } sm={ 12 } md={ 5 } lg={ 4 } className="user-ad">
             <div className="ad-wrap">
                 <ClockShow/>
             </div>
@@ -487,13 +475,7 @@ const UserInfo = function(props) {
     const userInfo = props.userInfo;
 
     return (
-        <Col
-            xs={ 12 }
-            sm={ 12 }
-            md={ 7 }
-            lg={ 8 }
-            className="user-info"
-        >
+        <Col xs={ 12 } sm={ 12 } md={ 7 } lg={ 8 } className="user-info">
             <div className="info-wrap">
                 <div className="user-info-item">
                     <div className="user-info-title">
@@ -586,13 +568,7 @@ const UserOverview = function(props) {
     }, [userInfo.uuid, _count.avatar]);
 
     return (
-        <Col
-            xs={ 12 }
-            sm={ 12 }
-            md={ 5 }
-            lg={ 4 }
-            className="user-overview"
-        >
+        <Col xs={ 12 } sm={ 12 } md={ 5 } lg={ 4 } className="user-overview">
             <div className="overview-wrap">
                 <div className="avatar-wrap">
                     <form

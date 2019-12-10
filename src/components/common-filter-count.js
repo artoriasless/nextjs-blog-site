@@ -143,12 +143,7 @@ const CommonFilterCount = function(props) {
                 <i onClick={ togglePaperFilter } className="fa fa-compress hide-icon pull-right"></i>
             </span>
             <Fade in={ expanded }>
-                <Col
-                    xs={ 12 }
-                    md={ 4 }
-                    lg={ 3 }
-                    className={ `filter-container ${expanded ? '' : 'hidden'}` }
-                >
+                <Col xs={ 12 } md={ 4 } lg={ 3 } className={ `filter-container ${expanded ? '' : 'hidden'}` }>
                     <FilterContentLatest filter={ latest }/>
                     <FilterContentTag filter={ tag }/>
                     <FilterContentTimeline filter={ timeline }/>

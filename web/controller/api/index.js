@@ -35,6 +35,9 @@ const confiList = [
     // Paper
     ['/api/paper/filter-count', cors, GET, paper.filterCount],
     ['/api/paper/:paperId', cors, GET, paper.findOne],
+    ['/api/paper/upload-material', cors, POST, paper.uploadMaterial],
+    ['/api/paper/create', cors, POST, paper.create],
+    ['/api/paper/:paperId/update', cors, POST, paper.update],
 
     // Reply
     ['/api/reply', cors, GET, reply.findMany],

@@ -45,6 +45,15 @@ const ajaxRequestMap = {
         detail: {
             url: '/api/paper/:paperId', type: GET,
         },
+        create: {
+            url: '/api/paper/create', type: POST,
+        },
+        update: {
+            url: '/api/paper/:paperId/update', type: POST,
+        },
+        uploadMaterial: {
+            url: '/api/paper/upload-material', type: POST,
+        },
     },
     catalogue: {
         page: {

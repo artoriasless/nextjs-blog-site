@@ -1,9 +1,20 @@
 @import '~style/common/variables.scss';
 
+@import '~style/components/common-navbar.scss';
+@import '~style/components/common-login-modal.scss';
+
 .page-paper-submit {
-    height: calc(100% - 2.5rem - 1px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: calc(0.5rem + 30px);
+    height: calc(100% - 0.5rem - 30px);
 
     .page-section-body {
+        max-width: 1200px;
+        padding: 0.25rem;
+        margin: 0 auto;
         height: 100%;
     }
 
@@ -51,6 +62,7 @@
         color: $colorWhite;
         background-color: $colorTheme;
         opacity: 0.5;
+        cursor: pointer;
 
         &:hover {
             opacity: 1;
@@ -208,6 +220,7 @@
         line-height: 1.75rem;
         text-align: center;
         font-size: 1.25rem;
+        cursor: pointer;
     }
 
     .history-title {

@@ -27,6 +27,9 @@ const webpack = function(config, options) { // eslint-disable-line
 
     return config;
 };
+const generateBuildId = async () => {
+    return '';
+};
 
 module.exports = withCSS(withSass({
     compress,
@@ -35,4 +38,5 @@ module.exports = withCSS(withSass({
     cssLoaderOptions,
     sassLoaderOptions,
     webpack,
+    generateBuildId,
 }));

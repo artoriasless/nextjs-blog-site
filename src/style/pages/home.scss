@@ -86,6 +86,20 @@
             }
         }
     }
+
+    .archiving-container {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+        .archiving-link:hover,
+        .archiving-link:active,
+        .archiving-link:visited {
+            text-decoration: none;
+        }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
+import config from 'config';
 import {
     getFetchUrl,
 } from 'lib';
@@ -60,6 +61,16 @@ const UI_Home = function(props) {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="archiving-container">
+                        <a
+                            href="//www.beian.miit.gov.cn"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            className="archiving-link"
+                        >
+                            { config.archiving }
+                        </a>
                     </div>
                 </div>
             </Layout>

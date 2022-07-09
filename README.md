@@ -2,7 +2,7 @@
 
 enhanced blog site based on **`nextjs`** belongs to me, version 6.0（[中文](https://github.com/MonkingStand/nextjs-blog-site/blob/master/README.zh.md)）
 
-> website : **[stanby](http://www.artoriasless.cn)**
+> website : **[artoriasless](http://www.artoriasless.cn)**
 
 ## Brief
 

@@ -67,8 +67,14 @@ const PaperBody = function (props) {
   const [paperContentBody, setPaperContentBody] = useState(markdown(content));
 
   useEffect(() => {
-    setHashVal(hash.sha1(processContent(markdown(content))));
-    setPaperContentBody(processContent(markdown(content)));
+    // 兼容纯 HTML 存储的数据内容
+    if (content && /^\s*\</.test(content)) {
+      setHashVal(hash.sha1(content));
+      setPaperContentBody(content);
+    } else {
+      setHashVal(hash.sha1(processContent(markdown(content))));
+      setPaperContentBody(processContent(markdown(content)));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paperId, hashVal]);
 

@@ -1,20 +1,8 @@
 'use strict';
 
 module.exports = {
-    domain: 'http://www.stanby.cn',
-    port: 6200,
-    db: {
-        host: 'test',
-        port: 3306,
-        user: 'test',
-        password: 'test',
-        database: 'test',
-        seq_options: {
-            logging: false,
-            dialectOptions: {
-                charset: 'utf8',
-            },
-        },
-    },
-    owners: []
+  domain: 'http://www.artoriasless.cn',
+  port: 6200,
+  db: {},
+  owners: ['1b8ea9c8-1edc-41fa-b173-7c9f55429fdc'],
 };

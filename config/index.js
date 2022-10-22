@@ -27,6 +27,7 @@ if (commonConfig.dev) {
     envConfig.db = dbOpts;
 }
 
+envConfig.db = dbOpts;
 envConfig.ossOpts = ossOpts;
 envConfig.mailOpts = mailOpts;
 

@@ -8,8 +8,8 @@
   "scripts": {
     "build": "next build",
     "publish": "node oss-publish.js",
-    "dev": "NODE_ENV=development nodemon node forever.js",
-    "start": "NODE_ENV=production node forever.js"
+    "dev": "cross-env NODE_ENV=development nodemon node forever.js",
+    "start": "cross-env NODE_ENV=production node forever.js"
   },
   "keywords": [
     "nextjs",
@@ -60,6 +60,7 @@
   "devDependencies": {
     "babel-eslint": "~10.0.3",
     "clean-css": "^4.2.3",
+    "cross-env": "^7.0.3",
     "eslint": "~5.16.0",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",

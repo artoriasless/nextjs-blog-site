@@ -99,7 +99,7 @@ const uploadHandle = async function(localDir, originDir) {
                 fileData = new Buffer(compressObj.styles, 'UTF-8');
             }
 
-            await uploadFile(fileName, fileData);
+            await uploadFile(fileName.split(path.sep).join(path.posix.sep), fileData);
         } catch(err) {
             print();
             print(color.error, err, color.reset);
@@ -113,7 +113,7 @@ const ossPublish = async function() {
         print();
     } else {
         await uploadHandle('static', `${assetFolder}/static`);
-        await uploadHandle('.next/static', `${assetFolder}/_next/static`);
+        await uploadHandle('.next', `${assetFolder}/_next`);
 
         print();
         print(color.title, 'publishment is handling...', color.reset);

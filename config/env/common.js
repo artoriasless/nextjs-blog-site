@@ -12,7 +12,7 @@ const paperPrefix = `${domain}/${staticFolder}/paper`;
 
 module.exports = {
   dev: process.env.NODE_ENV !== 'production',
-  archiving: '',
+  archiving: '浙ICP备2022028637号-1',
   sessionKeys: ['user'],
   session: {
     key: 'koa-artoriasless-site-session',

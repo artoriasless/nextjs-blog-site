@@ -9,7 +9,8 @@ const CommonHeadGenerator = function(props) {
         seo,
         children,
     } = props;
-    const favUrl = `${config.dev ? '' : config.ossPublic.assetPrefix}/static/favicon.ico`;
+    // 使用远程图标会导致无法显示，使用服务器上的 ico 图标
+    const favUrl = '/static/favicon.ico';
     const assetPrefix = config.dev ? '' : config.ossPublic.assetPrefix;
 
     return (

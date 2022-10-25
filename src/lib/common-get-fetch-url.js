@@ -12,7 +12,7 @@ const getFetchUrl = (ajaxName, jsonData) => {
     keyArr.forEach(key => {
         fetchObj = fetchObj[key];
     });
-    
+
     // 检查请求地址中是否有 param 参数需要替换
     const paramReg = /\/(:([^/]+))(\/|$)/;
     const paramRegResult = fetchObj.url.match(paramReg);
@@ -31,11 +31,14 @@ const getFetchUrl = (ajaxName, jsonData) => {
     }
 
     let fetchUrl;
-    
+
     try {
+        // 如果是前端，则无需添加域
+        const _host_ = (document && document.location && document.location.host) ? '' : `127.0.0.1:${config.port}`;
+
         document.querySelector('#isBrowser');
-        
-        fetchUrl = `${config.domain}${fetchObj.url}`;
+
+        fetchUrl = `${_host_}${fetchObj.url}`;
     } catch (err) { // eslint-disable-line
         fetchUrl = `http://127.0.0.1:${config.port}${fetchObj.url}`;
     }
